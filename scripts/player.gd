@@ -10,7 +10,8 @@ func _physics_process(delta: float) -> void:
 			velocity.y = 500
 	
 	if Input.is_action_just_pressed("jump"):
-		velocity.y = -jump_force
+		if is_on_floor():
+			velocity.y = -jump_force
 	
 	var horizontal_direction = Input.get_axis("move_left", "move_right")
 	velocity.x = speed * horizontal_direction

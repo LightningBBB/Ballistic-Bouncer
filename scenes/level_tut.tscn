@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://yj41jwivm7qu"]
+
+[ext_resource type="PackedScene" uid="uid://df2ot1eu8ynu8" path="res://scenes/player.tscn" id="1_etpoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etpoh"]
+size = Vector2(1315, 81)
+
+[node name="level_tut" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_etpoh")]
+position = Vector2(157, 351)
+
+[node name="Platform" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+offset_left = -31.0
+offset_top = 581.0
+offset_right = 1284.0
+offset_bottom = 662.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(626.5, 621.5)
+shape = SubResource("RectangleShape2D_etpoh")

@@ -1,0 +1,18 @@
+Controls for Ballistic Bouncer
+
+Movement
+	Left
+		a
+		left arrow
+		left d-pad
+	Right
+		d
+		right arrow
+		right d-pad
+	Up
+		w
+		up arrow
+		a-button
+
+Abilities
+	

@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://cxhwnv6k4ak5"]
 
 [node name="UI" type="CanvasLayer"]
+layer = 128
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 263.0
+offset_bottom = 86.0

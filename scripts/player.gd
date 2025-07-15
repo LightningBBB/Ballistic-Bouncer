@@ -20,7 +20,7 @@ func _physics_process(delta):
 	move_and_slide()
 	print(velocity)
 
-	# Rotate Aim_Indicator with joystick input and toggle visibility
+	# Rotate Aim_Indicator with joystick input and toggle visibility - ChatGPT
 	var stick_input = Vector2(
 		Input.get_joy_axis(0, JOY_AXIS_RIGHT_X),
 		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)  # Y-axis NOT inverted

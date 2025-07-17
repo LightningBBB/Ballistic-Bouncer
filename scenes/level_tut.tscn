@@ -8,6 +8,13 @@ size = Vector2(1315, 81)
 
 [node name="level_tut" type="Node2D"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10251.0
+offset_top = -5644.0
+offset_right = 10615.0
+offset_bottom = 5190.0
+color = Color(0.384314, 0.8, 0.956863, 1)
+
 [node name="UI" parent="." instance=ExtResource("1_id42f")]
 layer = 1
 
@@ -16,12 +23,13 @@ position = Vector2(157, 351)
 
 [node name="Platform" type="StaticBody2D" parent="."]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(626.5, 621.5)
+shape = SubResource("RectangleShape2D_etpoh")
+
 [node name="ColorRect" type="ColorRect" parent="Platform"]
 offset_left = -31.0
 offset_top = 581.0
 offset_right = 1284.0
 offset_bottom = 662.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(626.5, 621.5)
-shape = SubResource("RectangleShape2D_etpoh")
+color = Color(0.764706, 0.870588, 0.329412, 1)

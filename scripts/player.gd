@@ -46,6 +46,8 @@ func _physics_process(delta):
 
 	if stick_input.length() > 0.1:
 		$Aim_Indicator.visible = true
-		$Aim_Indicator.rotation = stick_input.angle()
+		var angle = stick_input.angle()
+		var snapped_angle = round(angle / (PI / 4)) * (PI / 4)
+		$Aim_Indicator.rotation = snapped_angle
 	else:
 		$Aim_Indicator.visible = false

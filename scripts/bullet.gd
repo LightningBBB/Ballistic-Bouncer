@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED: float = 20.0
+const SPEED: float = 10.0
 var player: Node
 
 

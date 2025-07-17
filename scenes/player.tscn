@@ -25,7 +25,7 @@ color = Color(0.717647, 0.329412, 0.870588, 0.435294)
 layout_mode = 0
 offset_left = 225.0
 offset_top = -7.0
-offset_right = 241.0
+offset_right = 256.0
 offset_bottom = 25.0
 color = Color(0.717647, 0.329412, 0.870588, 0.435294)
 
@@ -40,3 +40,27 @@ color = Color(0.717647, 0.329412, 0.870588, 1)
 position = Vector2(0, -211)
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
+
+[node name="Sword" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Sword"]
+offset_left = 64.0
+offset_top = -16.0
+offset_right = 80.0
+offset_bottom = 16.0
+
+[node name="ColorRect2" type="ColorRect" parent="Sword"]
+offset_left = 80.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 8.0
+
+[node name="ColorRect3" type="ColorRect" parent="Sword"]
+offset_left = 104.0
+offset_top = -16.0
+offset_right = 120.0
+offset_bottom = 16.0
+
+[node name="Polygon2D" type="Polygon2D" parent="Sword"]
+color = Color(0.617455, 0.617455, 0.617455, 1)
+polygon = PackedVector2Array(120, -8, 216, -8, 248, 0, 216, 8, 120, 8)

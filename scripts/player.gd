@@ -43,6 +43,8 @@ func _physics_process(delta):
 		bullet.player = self
 		
 		add_sibling(bullet)
+		
+		Input.start_joy_vibration(0, 1, 1, 0.1)
 
 	if stick_input.length() > 0.1:
 		$Aim_Indicator.visible = true

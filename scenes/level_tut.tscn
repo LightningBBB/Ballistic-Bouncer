@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://yj41jwivm7qu"]
+[gd_scene load_steps=5 format=3 uid="uid://yj41jwivm7qu"]
 
 [ext_resource type="PackedScene" uid="uid://df2ot1eu8ynu8" path="res://scenes/player.tscn" id="1_etpoh"]
 [ext_resource type="PackedScene" uid="uid://cxhwnv6k4ak5" path="res://scenes/ui.tscn" id="1_id42f"]
+[ext_resource type="PackedScene" uid="uid://c25u4i5nlx3w0" path="res://scenes/enemy.tscn" id="3_pkorr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etpoh"]
 size = Vector2(1315, 81)
@@ -33,3 +34,48 @@ offset_top = 581.0
 offset_right = 1284.0
 offset_bottom = 662.0
 color = Color(0.764706, 0.870588, 0.329412, 1)
+
+[node name="Enemy" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(1377, 490)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(-119, 481)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(1383, 305)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(-127, 296)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(-125, 105)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(-123, -70)
+
+[node name="Enemy7" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(38, -114)
+
+[node name="Enemy8" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(224, -166)
+
+[node name="Enemy9" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(568, -154)
+
+[node name="Enemy10" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(413, -37)
+
+[node name="Enemy11" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(750, -150)
+
+[node name="Enemy12" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(868, 171)
+
+[node name="Enemy13" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(585, 121)
+
+[node name="Enemy14" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(1181, -98)
+
+[node name="Enemy15" parent="." instance=ExtResource("3_pkorr")]
+position = Vector2(1368, 53)

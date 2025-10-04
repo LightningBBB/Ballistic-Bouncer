@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://8nx6d5ijtmb" path="res://assets/background_1.2.png" id="1_chtyq"]
 [ext_resource type="PackedScene" uid="uid://df2ot1eu8ynu8" path="res://scenes/player.tscn" id="1_etpoh"]
 [ext_resource type="PackedScene" uid="uid://cxhwnv6k4ak5" path="res://scenes/ui.tscn" id="1_id42f"]
-[ext_resource type="Texture2D" uid="uid://dorl1qhhsudfq" path="res://assets/hills_1.0.png" id="2_fcv5m"]
-[ext_resource type="Texture2D" uid="uid://nbmct0crqra7" path="res://assets/hills_2.0.png" id="3_j6qqf"]
+[ext_resource type="Texture2D" uid="uid://cjw88tud1bxi6" path="res://assets/pixil-layer-0.png" id="1_ip1fd"]
+[ext_resource type="Texture2D" uid="uid://6kxkkd8awcbp" path="res://assets/pixil-layer-1.png" id="2_el1be"]
 [ext_resource type="Texture2D" uid="uid://dopeormfvnb76" path="res://assets/tileset_1.6.png" id="6_ip1fd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fsviq"]
@@ -968,8 +968,9 @@ motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(1024, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(0, 300)
-texture = ExtResource("2_fcv5m")
+position = Vector2(0, 439.00003)
+scale = Vector2(1.249, 2.154321)
+texture = ExtResource("1_ip1fd")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -977,8 +978,9 @@ motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(1024, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(0, 300)
-texture = ExtResource("3_j6qqf")
+position = Vector2(0, 477.99997)
+scale = Vector2(1, 1.9135801)
+texture = ExtResource("2_el1be")
 centered = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

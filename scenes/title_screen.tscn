@@ -1,7 +1,137 @@
-[gd_scene format=3 uid="uid://14moljwyhkgt"]
+[gd_scene load_steps=13 format=3 uid="uid://14moljwyhkgt"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://dpygm8gmgwkw0" path="res://scripts/title_screen.gd" id="1_fgkus"]
+[ext_resource type="Texture2D" uid="uid://8nx6d5ijtmb" path="res://assets/background_1.2.png" id="2_sa3yf"]
+[ext_resource type="Texture2D" uid="uid://c20lg7c51p5rt" path="res://assets/logo.png" id="3_s4lrb"]
 
-[node name="Button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e54dn"]
+bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.5411765, 0.24313726, 0.105882354, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cs5ya"]
+bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.28627452, 0.09411765, 0.08627451, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgkus"]
+bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.5411765, 0.24313726, 0.105882354, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa3yf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4lrb"]
+bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.28627452, 0.09411765, 0.08627451, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgrm8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc4i4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yumr"]
+bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.5411765, 0.24313726, 0.105882354, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mykxm"]
+bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.28627452, 0.09411765, 0.08627451, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fgkus")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.49999997, 0.5)
+texture = ExtResource("2_sa3yf")
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 539.0
+offset_right = 331.0
+offset_bottom = 628.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_e54dn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cs5ya")
+text = "Options"
+
+[node name="Play" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 0
+offset_left = 352.0
+offset_top = 499.0
+offset_right = 802.0
+offset_bottom = 629.0
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgkus")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sa3yf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgrm8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dc4i4")
+text = "PLAY"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 824.0
+offset_top = 539.0
+offset_right = 1131.0
+offset_bottom = 628.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_3yumr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mykxm")
+text = "Quit"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(576, 216)
+texture = ExtResource("3_s4lrb")
+
+[connection signal="pressed" from="Play" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://yj41jwivm7qu"]
+[gd_scene load_steps=10 format=4 uid="uid://yj41jwivm7qu"]
 
 [ext_resource type="Texture2D" uid="uid://8nx6d5ijtmb" path="res://assets/background_1.2.png" id="1_chtyq"]
 [ext_resource type="PackedScene" uid="uid://df2ot1eu8ynu8" path="res://scenes/player.tscn" id="1_etpoh"]
 [ext_resource type="PackedScene" uid="uid://cxhwnv6k4ak5" path="res://scenes/ui.tscn" id="1_id42f"]
 [ext_resource type="Texture2D" uid="uid://cjw88tud1bxi6" path="res://assets/pixil-layer-0.png" id="1_ip1fd"]
 [ext_resource type="Texture2D" uid="uid://6kxkkd8awcbp" path="res://assets/pixil-layer-1.png" id="2_el1be"]
+[ext_resource type="PackedScene" uid="uid://c25u4i5nlx3w0" path="res://scenes/enemy.tscn" id="4_el1be"]
 [ext_resource type="Texture2D" uid="uid://dopeormfvnb76" path="res://assets/tileset_1.6.png" id="6_ip1fd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fsviq"]
@@ -978,7 +979,7 @@ motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(1024, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(0, 477.99997)
+position = Vector2(0.99999994, 477.00003)
 scale = Vector2(1, 1.9135801)
 texture = ExtResource("2_el1be")
 centered = false
@@ -1004,3 +1005,23 @@ tile_set = SubResource("TileSet_m3lpb")
 
 [node name="Player" parent="." instance=ExtResource("1_etpoh")]
 position = Vector2(157, 351)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_el1be")]
+position = Vector2(671, 358)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_el1be")]
+position = Vector2(1577, 364)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_el1be")]
+position = Vector2(1575, 82)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("4_el1be")]
+position = Vector2(1445, 80)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("4_el1be")]
+position = Vector2(1322, 80)
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("4_el1be")]
+position = Vector2(1205, 80)

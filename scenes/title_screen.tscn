@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://14moljwyhkgt"]
+[gd_scene load_steps=15 format=3 uid="uid://14moljwyhkgt"]
 
 [ext_resource type="Script" uid="uid://dpygm8gmgwkw0" path="res://scripts/title_screen.gd" id="1_fgkus"]
 [ext_resource type="Texture2D" uid="uid://8nx6d5ijtmb" path="res://assets/background_1.2.png" id="2_sa3yf"]
+[ext_resource type="Texture2D" uid="uid://cjw88tud1bxi6" path="res://assets/pixil-layer-0.png" id="3_dc4i4"]
 [ext_resource type="Texture2D" uid="uid://c20lg7c51p5rt" path="res://assets/logo.png" id="3_s4lrb"]
+[ext_resource type="Texture2D" uid="uid://6kxkkd8awcbp" path="res://assets/pixil-layer-1.png" id="4_e54dn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e54dn"]
 bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
@@ -92,6 +94,16 @@ position = Vector2(576, 324)
 scale = Vector2(0.49999997, 0.5)
 texture = ExtResource("2_sa3yf")
 
+[node name="PixilLayer0" type="Sprite2D" parent="."]
+position = Vector2(576, 489.49997)
+scale = Vector2(1.152, 1.9567901)
+texture = ExtResource("3_dc4i4")
+
+[node name="PixilLayer1" type="Sprite2D" parent="."]
+position = Vector2(576, 500.49997)
+scale = Vector2(1.152, 1.8209879)
+texture = ExtResource("4_e54dn")
+
 [node name="Options" type="Button" parent="."]
 layout_mode = 0
 offset_left = 24.0
@@ -129,7 +141,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3yumr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mykxm")
 text = "Quit"
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Title" type="Sprite2D" parent="."]
 position = Vector2(576, 216)
 texture = ExtResource("3_s4lrb")
 

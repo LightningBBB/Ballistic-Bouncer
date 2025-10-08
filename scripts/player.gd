@@ -9,42 +9,36 @@ extends CharacterBody2D
 var remainingjumps = 2
 
 func _physics_process(delta):
+
 	var horizontal_direction = Input.get_axis("move_left", "move_right")
 	velocity.x = speed * horizontal_direction
-	
-	var stick_input = Vector2(
-		Input.get_joy_axis(0, JOY_AXIS_LEFT_X),
-		Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
-	)
-	
-	if  not is_on_floor():
+
+	if not is_on_floor():
 		velocity.y += gravity * delta
+	else:
+		velocity.y = 0
+		remainingjumps = maxjumps
 
 	if Input.is_action_just_pressed("jump") and remainingjumps > 0:
 		velocity.y = -jump_force
 		remainingjumps -= 1
 		print("Jumped! Remaining jumps:", remainingjumps)
-	
-	move_and_slide()
-	
-	if is_on_floor():
-		remainingjumps = maxjumps
 
-
-	
-	print(velocity)	
-
-
-	
 	if Input.is_action_just_pressed("ranged"):
-		var bullet = bulletscene.instantiate()
-		bullet.rotation = $Aim_Indicator.rotation
-		bullet.position = global_position
-		bullet.player = self
-		
-		add_sibling(bullet)
-		
-		Input.start_joy_vibration(0, 1, 1, 0.1)
+		if bulletscene:
+			var bullet = bulletscene.instantiate()
+			bullet.rotation = $Aim_Indicator.rotation
+			bullet.position = global_position
+			bullet.player = self
+			add_sibling(bullet)
+			Input.start_joy_vibration(0, 1, 1, 0.1)
+		else:
+			print("No bullet scene assigned!")
+
+	var stick_input = Vector2(
+		Input.get_joy_axis(0, JOY_AXIS_LEFT_X),
+		Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+	)
 
 	if stick_input.length() > 0.1:
 		$Aim_Indicator.visible = true
@@ -53,3 +47,10 @@ func _physics_process(delta):
 		$Aim_Indicator.rotation = snapped_angle
 	else:
 		$Aim_Indicator.visible = false
+
+	move_and_slide()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_meta("basic_enemy"):
+		Global.player_health -= 1
+		print("Hit by enemy! Health:", Global.player_health)

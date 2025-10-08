@@ -6,10 +6,12 @@
 size = Vector2(64, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
-size = Vector2(80, 144)
+size = Vector2(64, 128)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_7p1mj")
+speed = null
+gravity = null
 metadata/basic_enemy = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

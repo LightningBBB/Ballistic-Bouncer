@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxhwnv6k4ak5"]
+[gd_scene load_steps=4 format=3 uid="uid://cxhwnv6k4ak5"]
+
+[ext_resource type="PackedScene" uid="uid://b2qmo2csytm2a" path="res://scenes/heart.tscn" id="1_nt7q6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlq6p"]
 bg_color = Color(0.513726, 0.411765, 0.32549, 1)
@@ -50,3 +52,7 @@ offset_right = 1137.0
 offset_bottom = 635.0
 theme_override_styles/background = SubResource("StyleBoxFlat_xlq6p")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nt7q6")
+
+[node name="Hearts" parent="." instance=ExtResource("1_nt7q6")]
+position = Vector2(1008, 48)
+scale = Vector2(0.6, 0.6)

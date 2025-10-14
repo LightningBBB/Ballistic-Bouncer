@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://dv2sv7w1cipil"]
+
+[ext_resource type="Script" uid="uid://b1s776ew6tojh" path="res://scripts/game_over.gd" id="1_xeevv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nqlu"]
+bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.5411765, 0.24313726, 0.105882354, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xeevv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqhvx"]
+bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.28627452, 0.09411765, 0.08627451, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbwuq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_racf3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m3ot"]
+bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.5411765, 0.24313726, 0.105882354, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3hpu"]
+bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.28627452, 0.09411765, 0.08627451, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Game Over" type="Node2D"]
+script = ExtResource("1_xeevv")
+
+[node name="Restart" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 0)
+offset_left = 352.0
+offset_top = 499.0
+offset_right = 802.0
+offset_bottom = 629.0
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_0nqlu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xeevv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wqhvx")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_tbwuq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_racf3")
+text = "RESTART"
+
+[node name="Main Menu" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 539.0
+offset_right = 331.0
+offset_bottom = 628.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7m3ot")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v3hpu")
+text = "Main Menu"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]

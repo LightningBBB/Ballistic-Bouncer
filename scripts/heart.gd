@@ -4,6 +4,8 @@ extends Node2D
 @onready var heart_two = $"Heart 2"
 @onready var heart_three = $"Heart 3"
 
+var experience = 0
+
 func _process(_delta: float) -> void:
 	if Global.player_health == 3:
 		pass

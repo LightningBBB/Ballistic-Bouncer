@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv2sv7w1cipil"]
+[gd_scene load_steps=7 format=3 uid="uid://dv2sv7w1cipil"]
 
 [ext_resource type="Script" uid="uid://b1s776ew6tojh" path="res://scripts/game_over.gd" id="1_xeevv"]
+[ext_resource type="Texture2D" uid="uid://oan24s2urmv" path="res://assets/background_death.png" id="2_wqhvx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nqlu"]
 bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
@@ -14,9 +15,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xeevv"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqhvx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4lrb"]
 bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
 border_width_left = 10
 border_width_top = 10
@@ -27,10 +26,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbwuq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_racf3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m3ot"]
 bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
@@ -56,31 +51,43 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="Game Over" type="Node2D"]
+[node name="Game Over" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_xeevv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.49999997, 0.5)
+texture = ExtResource("2_wqhvx")
 
 [node name="Restart" type="Button" parent="."]
 custom_minimum_size = Vector2(80, 0)
+layout_mode = 0
 offset_left = 352.0
 offset_top = 499.0
 offset_right = 802.0
 offset_bottom = 629.0
 theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_0nqlu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_xeevv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wqhvx")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_tbwuq")
-theme_override_styles/focus = SubResource("StyleBoxFlat_racf3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_s4lrb")
 text = "RESTART"
 
 [node name="Main Menu" type="Button" parent="."]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 539.0
 offset_right = 331.0
 offset_bottom = 628.0
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_7m3ot")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s4lrb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v3hpu")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_s4lrb")
 text = "Main Menu"
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

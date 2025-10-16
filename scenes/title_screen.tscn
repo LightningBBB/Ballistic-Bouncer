@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://14moljwyhkgt"]
+[gd_scene load_steps=12 format=3 uid="uid://14moljwyhkgt"]
 
 [ext_resource type="Script" uid="uid://dpygm8gmgwkw0" path="res://scripts/title_screen.gd" id="1_fgkus"]
 [ext_resource type="Texture2D" uid="uid://8nx6d5ijtmb" path="res://assets/background_1.2.png" id="2_sa3yf"]
@@ -17,6 +17,18 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4lrb"]
+bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.28627452, 0.09411765, 0.08627451, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cs5ya"]
 bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
@@ -41,24 +53,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa3yf"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4lrb"]
-bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.28627452, 0.09411765, 0.08627451, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgrm8"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc4i4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yumr"]
 bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
@@ -112,7 +106,10 @@ offset_right = 331.0
 offset_bottom = 628.0
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_e54dn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s4lrb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cs5ya")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_s4lrb")
 text = "Options"
 
 [node name="Play" type="Button" parent="."]
@@ -124,10 +121,10 @@ offset_right = 802.0
 offset_bottom = 629.0
 theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_fgkus")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_sa3yf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s4lrb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s4lrb")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_mgrm8")
-theme_override_styles/focus = SubResource("StyleBoxFlat_dc4i4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_s4lrb")
 text = "PLAY"
 
 [node name="Quit" type="Button" parent="."]
@@ -138,7 +135,10 @@ offset_right = 1131.0
 offset_bottom = 628.0
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_3yumr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s4lrb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mykxm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_s4lrb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_s4lrb")
 text = "Quit"
 
 [node name="Title" type="Sprite2D" parent="."]

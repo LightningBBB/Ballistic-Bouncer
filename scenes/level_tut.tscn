@@ -962,8 +962,11 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fsviq")
 
-[node name="level_tut" type="Node2D"]
+[node name="level_tut" type="Node2D" node_paths=PackedStringArray("enemy_spawn_nodes", "spawn_timer")]
 script = ExtResource("1_dcv11")
+enemy_spawn_nodes = NodePath("enemy_spawn_positions")
+spawn_timer = NodePath("spawn_timer")
+enemy_scene = ExtResource("4_el1be")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -9
@@ -1013,11 +1016,30 @@ tile_set = SubResource("TileSet_m3lpb")
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="." instance=ExtResource("4_el1be")]
-position = Vector2(-603, 293)
+[node name="spawn_timer" type="Timer" parent="."]
+autostart = true
 
-[node name="Enemy2" parent="." instance=ExtResource("4_el1be")]
-position = Vector2(883, -194)
+[node name="enemy_spawn_positions" type="Node" parent="."]
 
-[node name="Enemy3" parent="." instance=ExtResource("4_el1be")]
-position = Vector2(-263, -435)
+[node name="pos1" type="Node2D" parent="enemy_spawn_positions"]
+position = Vector2(238, -88)
+
+[node name="pos2" type="Node2D" parent="enemy_spawn_positions"]
+position = Vector2(64, -461)
+
+[node name="pos3" type="Node2D" parent="enemy_spawn_positions"]
+position = Vector2(682, 330)
+
+[node name="pos4" type="Node2D" parent="enemy_spawn_positions"]
+position = Vector2(917, -103)
+
+[node name="pos5" type="Node2D" parent="enemy_spawn_positions"]
+position = Vector2(-506, -283)
+
+[node name="pos6" type="Node2D" parent="enemy_spawn_positions"]
+position = Vector2(-941, 94)
+
+[node name="pos7" type="Node2D" parent="enemy_spawn_positions"]
+position = Vector2(-378, 270)
+
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

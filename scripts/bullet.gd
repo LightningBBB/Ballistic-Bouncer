@@ -1,12 +1,11 @@
 extends Area2D
 
-const SPEED: float = 10.0
+const SPEED: float = 20.0
 var player: Node
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	move_local_x(SPEED)
-
 
 
 func _on_body_entered(body: Node2D) -> void:

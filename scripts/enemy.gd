@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
-signal enemy_defeated(value: int)
-
-@export var speed = 600
+@export var speed = 400
 @export var gravity = 980
 
 var player: Node = null

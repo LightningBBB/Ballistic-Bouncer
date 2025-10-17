@@ -24,6 +24,15 @@ Global="*res://scripts/Global.gd"
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://audio/": "green",
+"res://scenes/": "blue",
+"res://scripts/": "gray"
+}
+
 [input]
 
 ui_accept={

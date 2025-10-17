@@ -27,6 +27,7 @@ window/stretch/mode="canvas_items"
 [file_customization]
 
 folder_colors={
+"res://Sounds/": "teal",
 "res://assets/": "red",
 "res://audio/": "green",
 "res://scenes/": "blue",

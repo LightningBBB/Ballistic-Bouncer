@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv2sv7w1cipil"]
+[gd_scene load_steps=8 format=3 uid="uid://dv2sv7w1cipil"]
 
 [ext_resource type="Script" uid="uid://b1s776ew6tojh" path="res://scripts/game_over.gd" id="1_xeevv"]
 [ext_resource type="Texture2D" uid="uid://oan24s2urmv" path="res://assets/background_death.png" id="2_wqhvx"]
+[ext_resource type="Texture2D" uid="uid://qdl6177d43jh" path="res://assets/game_over.png" id="3_tbwuq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nqlu"]
 bg_color = Color(0.7137255, 0.40784314, 0.23529412, 1)
@@ -89,6 +90,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_v3hpu")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_s4lrb")
 theme_override_styles/focus = SubResource("StyleBoxFlat_s4lrb")
 text = "Main Menu"
+
+[node name="GameOver" type="Sprite2D" parent="."]
+position = Vector2(576.00006, 192)
+scale = Vector2(0.52597404, 0.52597404)
+texture = ExtResource("3_tbwuq")
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]

@@ -12,7 +12,7 @@ script = ExtResource("1_mkf8s")
 shape = SubResource("RectangleShape2D_y25gk")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.717831, 0.676506, 0.402067, 1)
+color = Color(1, 0.8980392, 0.4392157, 1)
 polygon = PackedVector2Array(0, 0, 16, -16, 40, -8, 40, 8, 16, 16)
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -20,6 +20,6 @@ offset_left = -40.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
-color = Color(0.811765, 0.811765, 0.768627, 1)
+color = Color(0.9764706, 0.6313726, 0.20784314, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

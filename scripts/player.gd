@@ -1,55 +1,53 @@
 extends CharacterBody2D
 
-@export var speed = 600
-@export var gravity = 980
-@export var jump_force = 600
+@export var speed: float = 600
+@export var gravity: float = 980
+@export var jump_force: float = 600
 @export var bulletscene: PackedScene
+@export var maxjumps: int = 2
 
-@export var maxjumps = 2
-var remainingjumps = 2
+var remainingjumps: int = 2
 
-func _physics_process(delta):
-
-	var horizontal_direction = Input.get_axis("move_left", "move_right")
+func _physics_process(delta: float) -> void:
+	# Left and right movement input
+	var horizontal_direction := Input.get_axis("move_left", "move_right")
 	velocity.x = speed * horizontal_direction
 
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	else:
+	# Gravity and jump reset
+	if is_on_floor():
 		velocity.y = 0
 		remainingjumps = maxjumps
+	else:
+		velocity.y += gravity * delta
 
+	# Jump
 	if Input.is_action_just_pressed("jump") and remainingjumps > 0:
 		velocity.y = -jump_force
 		remainingjumps -= 1
-		print("Jumped! Remaining jumps:", remainingjumps)
+		print("Jumped, remaining jumps:", remainingjumps)
 
-	if Input.is_action_just_pressed("ranged"):
-		if bulletscene:
-			var bullet = bulletscene.instantiate()
-			bullet.rotation = $Aim_Indicator.rotation
-			bullet.position = global_position
-			bullet.player = self
-			add_sibling(bullet)
-			Input.start_joy_vibration(0, 1, 1, 0.1)
-		else:
-			print("No bullet scene assigned!")
+	# Ranged attack
+	if Input.is_action_just_pressed("ranged") and bulletscene:
+		var bullet = bulletscene.instantiate()
+		bullet.rotation = $Aim_Indicator.rotation
+		bullet.position = global_position
+		bullet.player = self
+		add_sibling(bullet)
+		Input.start_joy_vibration(0, 1, 1, 0.1)
 
-	var stick_input = Vector2(
-		Input.get_joy_axis(0, JOY_AXIS_LEFT_X),
-		Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
-	)
+	# Analog stick input for movement and aim
+	var stick_input := Vector2(Input.get_joy_axis(0, JOY_AXIS_LEFT_X),
+		Input.get_joy_axis(0, JOY_AXIS_LEFT_Y))
 
 	if stick_input.length() > 0.1:
 		$Aim_Indicator.visible = true
-		var angle = stick_input.angle()
-		var snapped_angle = round(angle / (PI / 4)) * (PI / 4)
-		$Aim_Indicator.rotation = snapped_angle
+		$Aim_Indicator.rotation = round(stick_input.angle() / (PI / 4)) * (PI / 4)
 	else:
 		$Aim_Indicator.visible = false
 
 	move_and_slide()
 
+# Enemy collision
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_meta("basic_enemy"):
 		Global.player_health -= 1

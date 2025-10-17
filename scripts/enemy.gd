@@ -16,8 +16,9 @@ func _ready():
 	for node in get_tree().get_nodes_in_group("Player"):
 		player = node
 
-
+# Die / Take Damage
 func take_damage():
+	Input.start_joy_vibration(0, 1, 1, 0.15)
 	queue_free()
 	Global.experience += 10
 
@@ -26,7 +27,7 @@ func _physics_process(delta):
 	if player == null:
 		return
 	
-	# Hunt the player
+	# Chase the player
 	var direction = player.global_position.x - global_position.x
 	if direction < 0:
 		direction = -1
@@ -62,4 +63,5 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_meta("player"):
 		body._on_area_2d_body_entered(self)
+		Input.start_joy_vibration(0, 1, 1, 0.25)
 		queue_free()

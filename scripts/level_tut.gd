@@ -1,73 +1,63 @@
 extends Node2D
 
-const spawn_interval: int = 3
-const initial_spawn_enemys: int = 3
-
-var spawn_position: Array = []
-var spawn_nodes: Array = []
-var player: Node = null
+const SPAWN_INTERVAL: int = 3
+const INITIAL_SPAWN_ENEMIES: int = 3
 
 @export var enemy_spawn_nodes: Node
 @export var spawn_timer: Timer
 @export var enemy_scene: PackedScene
 
+var spawn_position: Array = []
+var spawn_nodes: Array = []
+var player: Node = null
 
 func _ready() -> void:
+	# Identify Player
 	for node in get_tree().get_nodes_in_group("Player"):
 		player = node
-	
+
+	# Identifies all the spawnpoint nodes
 	spawn_nodes = enemy_spawn_nodes.get_children()
-	
-	# Store Spawn Locations
-	for x in spawn_nodes:
-		spawn_position.append(x.global_position)
-	
-	# Spawn Starting Enemies
-	for x in range(initial_spawn_enemys):
-		print(x)
+	for node in spawn_nodes:
+		spawn_position.append(node.global_position)
+
+	# Spawn the innitial 3 enemies
+	for i in range(INITIAL_SPAWN_ENEMIES):
 		var new_enemy = enemy_scene.instantiate()
-		var spawn_pos = get_safe_spawn_position()
+		new_enemy.global_position = get_safe_spawn_position()
 		add_child(new_enemy)
-		
-		new_enemy.global_position = spawn_pos
-	
-	# Start Spawning Timer
-	spawn_timer.wait_time = spawn_interval
+
+	# Begin the spawning timer
+	spawn_timer.wait_time = SPAWN_INTERVAL
 	spawn_timer.start()
 
-
-# Find Safest Spawn Point
+# Finds a spawn locations that the player is not near
 func get_safe_spawn_position() -> Vector2:
 	if player == null or spawn_position.size() == 0:
 		return spawn_position[0]
-	
-	# Find closest spawn location from player
+
+	#Finds closest spawn point to player
 	var closest_index = 0
 	var closest_distance = player.global_position.distance_to(spawn_position[0])
-	
 	for i in range(1, spawn_position.size()):
 		var distance = player.global_position.distance_to(spawn_position[i])
 		if distance < closest_distance:
 			closest_distance = distance
 			closest_index = i
-	
-	# Make list of safe spawn points
-	var available_spawns = []
+
+	# Creates a list of spawn points that are not the closest to the player
+	var available_spawns: Array = []
 	for i in range(spawn_position.size()):
 		if i != closest_index:
 			available_spawns.append(spawn_position[i])
-	
-	# Return random safe spawn
+
+	# Returns a random safe spawn point
 	if available_spawns.size() > 0:
 		return available_spawns[randi() % available_spawns.size()]
-	else:
-		return spawn_position[0]
+	return spawn_position[0]
 
-
-# Random Enemy Spawning
+# Spawns a new enemy at the random safe spawn point on timer trigger
 func _on_spawn_timer_timeout() -> void:
 	var new_enemy = enemy_scene.instantiate()
-	var spawn_pos = get_safe_spawn_position()
+	new_enemy.global_position = get_safe_spawn_position()
 	add_child(new_enemy)
-	
-	new_enemy.global_position = spawn_pos
